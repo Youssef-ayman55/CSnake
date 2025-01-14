@@ -42,14 +42,14 @@ void grid(SDL_Window * window, SDL_Surface* surface) {
     SDL_Rect line = {0, 0, WIDTH, LINE_THICKNESS};
     for (int i = 0; i < HEIGHT / CELL; i++) {
         line.y = i * CELL;
-        SDL_FillRect(surface, &line, 0xf1f1f1f1);
+        SDL_FillRect(surface, &line, 0x1f1f1f1f);
     }
     line.w = LINE_THICKNESS;
     line.h = HEIGHT;
     line.y = 0;
     for (int i = 0; i < WIDTH / CELL; i++) {
         line.x = i * CELL;
-        SDL_FillRect(surface, &line, 0xf1f1f1f1);
+        SDL_FillRect(surface, &line, 0x1f1f1f1f);
     }
     SDL_UpdateWindowSurface(window);
 }
@@ -160,16 +160,20 @@ int main(void) {
             else if (ev.type == SDL_KEYDOWN) {
                 switch (ev.key.keysym.sym) {
                     case SDLK_UP:
-                        direction = UP;
+                        if (direction != DOWN)
+                            direction = UP;
                     break;
                     case SDLK_DOWN:
-                        direction = DOWN;
+                        if (direction != UP)
+                            direction = DOWN;
                     break;
                     case SDLK_LEFT:
-                        direction = LEFT;
+                        if (direction != RIGHT)
+                            direction = LEFT;
                     break;
                     case SDLK_RIGHT:
-                        direction = RIGHT;
+                        if (direction != LEFT)
+                            direction = RIGHT;
                     break;
                 }
             }
