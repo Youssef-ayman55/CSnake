@@ -1,0 +1,3 @@
+/home/greeninja/CLionProjects/snake/cmake-build-debug/CMakeFiles/snake.dir
+/home/greeninja/CLionProjects/snake/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/greeninja/CLionProjects/snake/cmake-build-debug/CMakeFiles/rebuild_cache.dir
